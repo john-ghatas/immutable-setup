@@ -19,7 +19,7 @@ usermod -aG docker <your_user>
 - **Only run this step if you have an NVIDIA gpu**
     - `./nvidia-setup.sh`
     - If the NVIDIA gpu is your primary display output (in case of a desktop etc.) run the following command
-    - `rpm-ostree install nvidia-vaapi-backend`
+    - `rpm-ostree install nvidia-vaapi-driver`
     - Reboot again
 
 You are done, I provided an upgrade script as well in case you need to upgrade Kinoite/Silverblue
