@@ -40,7 +40,7 @@ If you encounter issues with the regular upgrade script try using the `./upgrade
 ## PGP Mail client
 If you are trying to get PGP Mailing working with Thunderbird follow the steps mentioned below (**only concerning the PGP mailing with smartcards**): 
 
-- Create a Fedora toolbox `distrobox-create --name fedora --image fedora:37`
+- Create a Fedora distrobox `distrobox-create --name fedora --image fedora:37`
 
 - Enter the distrobox with `distrobox enter fedora` 
 
