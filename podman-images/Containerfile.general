@@ -1,0 +1,4 @@
+FROM fedora:38
+RUN dnf update -y
+# Install General Use applications
+RUN dnf install firefox thunderbird gpgme pcsc-lite gpg -y
