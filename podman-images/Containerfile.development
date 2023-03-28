@@ -1,11 +1,8 @@
 FROM quay.io/fedora/fedora:38
 RUN dnf update -y
 # Install the needed IDEs, base and devel packages
-RUN dnf install git rstudio rdesktop neovim rstudio-desktop docker podman plocate ansible dotnet-sdk-7.0 -y
-RUN dnf install R R-devel fribidi-devel libcurl-devel libjpeg-turbo-devel libtiff-devel openssl-devel -y
-
-# Apply fix for missing doc folder for RStudio
-RUN mkdir -p /usr/share/doc/R
+RUN dnf install git neovim docker podman plocate ansible dotnet-sdk-7.0 -y
+RUN dnf install fribidi-devel libcurl-devel libjpeg-turbo-devel libtiff-devel openssl-devel -y
 
 # Install VSCodium
 RUN rpmkeys --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
