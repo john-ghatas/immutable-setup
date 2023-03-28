@@ -1,4 +1,8 @@
 FROM quay.io/fedora/fedora:38
+
+# Base setup
+RUN sed -i "/tsflags=nodocs/d" /etc/dnf/dnf.conf
 RUN dnf update -y
+
 # Install General Use applications
 RUN dnf install firefox thunderbird gpgme pcsc-lite gpg -y

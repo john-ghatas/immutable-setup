@@ -1,5 +1,8 @@
 FROM quay.io/fedora/fedora:38
+# Base setup
+RUN sed -i "/tsflags=nodocs/d" /etc/dnf/dnf.conf
 RUN dnf update -y
+
 # Install the needed IDEs, base and devel packages
 RUN dnf install git neovim docker podman plocate ansible dotnet-sdk-7.0 -y
 RUN dnf install fribidi-devel libcurl-devel libjpeg-turbo-devel libtiff-devel openssl-devel -y
