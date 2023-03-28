@@ -1,7 +1,7 @@
-FROM fedora:38
+FROM fedora:37
 RUN dnf update -y
 # Install the needed IDEs, base and devel packages
-RUN dnf install git rstudio rdesktop neovim rstudio-desktop docker plocate ansible dotnet-sdk-7.0 -y
+RUN dnf install git rstudio rdesktop neovim rstudio-desktop docker podman plocate ansible dotnet-sdk-7.0 -y
 RUN dnf install R R-devel fribidi-devel libcurl-devel libjpeg-turbo-devel libtiff-devel openssl-devel -y
 
 # Install VSCodium
