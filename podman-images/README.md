@@ -23,4 +23,7 @@ distrobox-export --service syncthing --extra-flags "--allow-newer-config"
 
 # Binaries
 distrobox-export --bin /usr/bin/vim -export-path ~/.local/bin
+
+# If an app/binary needs sudo rights in the container just add --sudo
+distrobox-export --app rstudio --sudo --extra-flags "--foreground"
 ```
