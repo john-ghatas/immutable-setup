@@ -1,15 +1,12 @@
-FROM registry.opensuse.org/opensuse/leap:latest
+FROM registry.fedoraproject.org/fedora:37
+
 # Base setup
-RUN zypper -n update
-RUN zypper -n install git wget nmap neovim vim gcc-c++
+RUN sed -i "/tsflags=nodocs/d" /etc/dnf/dnf.conf
+RUN dnf update -y
+RUN dnf install git wget nmap neovim vim gcc-c++ -y
 
 # Install the needed base and devel packages
-RUN zypper -n install fribidi-devel libcurl-devel libtiff-devel libopenssl-devel R-base libxml2-devel fontconfig-devel harfbuzz-devel
-
-# Install rstudio via the repo to get the dependencies and remove it after to override it with the downloaded version
-RUN zypper -n install rstudio-desktop
-RUN zypper -n remove rstudio-desktop 
+RUN dnf install fribidi-devel libcurl-devel libtiff-devel openssl-devel R-base libxml2-devel fontconfig-devel harfbuzz-devel freetype-devel libpng-devel libjpeg-turbo-devel R-core R-devel R-core-devel -y
 
 # Install RStudio
-RUN wget https://s3.amazonaws.com/rstudio-ide-build/electron/opensuse15/x86_64/rstudio-2023.03.1-422-x86_64.rpm -O rstudio.rpm
-RUN zypper -n --no-gpg-checks install ./rstudio.rpm
+RUN dnf install rstudio-desktop -y
