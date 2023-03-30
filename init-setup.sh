@@ -8,6 +8,6 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 flatpak override --user --filesystem=~/.themes --filesystem=~/.config/gtk-4.0
 
 # Add udev rules for adb/fastboot
-curl https://raw.githubusercontent.com/M0Rf30/android-udev-rules/main/51-android.rules > /etc/udev/rules.d/51-android.rules; chmod +r /etc/udev/rules.d/51-android.rules
+sudo runuser -l root -c "curl https://raw.githubusercontent.com/M0Rf30/android-udev-rules/main/51-android.rules > /etc/udev/rules.d/51-android.rules; chmod +r /etc/udev/rules.d/51-android.rules"
 
 echo "Please reboot to continue" 
