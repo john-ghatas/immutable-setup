@@ -16,7 +16,9 @@ distrobox create -i localhost/fedora-dev-38 -n fedora-development
 Export the apps and or binaries
 ```
 # GUI Applications
-distrobox-export --app codium
+distrobox-export --app codium --extra-flags "--foreground"
+distrobox-export --app libreoffice
+distrobox-export --app thunderbird --extra-flags "--foreground"
 
 # Services
 distrobox-export --service syncthing --extra-flags "--allow-newer-config"
