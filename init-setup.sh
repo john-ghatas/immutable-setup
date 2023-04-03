@@ -7,7 +7,18 @@ echo "Enabling the Flathub repo..."
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak override --user --filesystem=~/.themes --filesystem=~/.config/gtk-4.0
 
-# Add udev rules for adb/fastboot
+# Add udev rules for adb/fastboot and misc stuff grabbed from the uBlue repo
 sudo runuser -l root -c "curl https://raw.githubusercontent.com/M0Rf30/android-udev-rules/main/51-android.rules > /etc/udev/rules.d/51-android.rules; chmod +r /etc/udev/rules.d/51-android.rules"
+sudo runuser -l root -c "curl https://raw.githubusercontent.com/ublue-os/config/main/files/etc/udev/rules.d/60-openrgb.rules > /etc/udev/rules.d/60-openrgb.rules; chmod +r /etc/udev/rules.d/60-openrgb.rules"
+sudo runuser -l root -c "curl https://raw.githubusercontent.com/ublue-os/config/main/files/etc/udev/rules.d/70-u2f.rules > /etc/udev/rules.d/70-u2f.rules; chmod +r /etc/udev/rules.d/70-u2f.rules"
+sudo runuser -l root -c "curl https://raw.githubusercontent.com/ublue-os/config/main/files/etc/udev/rules.d/80-wooting.rules > /etc/udev/rules.d/80-wooting.rules; chmod +r /etc/udev/rules.d/80-wooting.rules"
+
+# Add the user to the plugdev group
+CURRENT_USER=$USER
+sudo groupadd plugdev
+sudo usermod -aG plugdev $CURRENT_USER
+
+echo "Added $CURRENT_USER to the group plugdev to activate the udev rules"
+sudo id -nG $CURRENT_USER
 
 echo "Please reboot to continue" 
