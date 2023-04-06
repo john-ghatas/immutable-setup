@@ -10,3 +10,9 @@ RUN dnf install fribidi-devel libcurl-devel libtiff-devel openssl-devel R-base l
 
 # Install RStudio
 RUN dnf install rstudio-desktop -y
+
+# Link the libraries
+RUN ln -sf /usr/bin/distrobox-host-exec /usr/local/bin/flatpak
+RUN ln -sf /usr/bin/distrobox-host-exec /usr/local/bin/podman
+RUN ln -sf /usr/bin/distrobox-host-exec /usr/local/bin/xdg-open
+RUN ln -sf /usr/bin/distrobox-host-exec /usr/local/bin/docker

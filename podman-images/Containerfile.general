@@ -6,3 +6,9 @@ RUN dnf update -y
 
 # Install General Use applications
 RUN dnf install firefox thunderbird gpgme pcsc-lite gpg neovim vim git libreoffice lm_sensors -y
+
+# Link the libraries
+RUN ln -sf /usr/bin/distrobox-host-exec /usr/local/bin/flatpak
+RUN ln -sf /usr/bin/distrobox-host-exec /usr/local/bin/podman
+RUN ln -sf /usr/bin/distrobox-host-exec /usr/local/bin/xdg-open
+RUN ln -sf /usr/bin/distrobox-host-exec /usr/local/bin/docker
