@@ -5,4 +5,4 @@ RUN sed -i "/tsflags=nodocs/d" /etc/dnf/dnf.conf
 RUN dnf update -y
 
 # Install General Use applications
-RUN dnf install firefox thunderbird gpgme pcsc-lite gpg neovim vim git libreoffice -y
+RUN dnf install firefox thunderbird gpgme pcsc-lite gpg neovim vim git libreoffice lm_sensors -y
