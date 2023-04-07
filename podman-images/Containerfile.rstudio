@@ -10,3 +10,6 @@ RUN dnf install fribidi-devel libcurl-devel libtiff-devel openssl-devel R-base l
 
 # Install RStudio
 RUN dnf install rstudio-desktop -y
+
+# Enable RPMFusion
+RUN dnf install http://mirror.dst.ca/rpmfusion/free/fedora/rpmfusion-free-release-37.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-37.noarch.rpm -y
