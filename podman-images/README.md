@@ -6,10 +6,29 @@ podman build -f <file> -t <image_name>
 distrobox create -i localhost/<image_name> -n <distrobox_name>
 ```
 
-# Examples
+# Build the images and create them with the legacy method
 ```
 podman build -f Containerfile.development -t fedora-dev-38
 distrobox create -i localhost/fedora-dev-38 -n fedora-development
+```
+
+# Build for use with the .ini
+```
+podman build -f Containerfile.development -t development-base
+podman build -f Containerfile.rstudio -t rstudio-base
+podman build -f Containerfile.general -t general-base
+```
+
+# Compose, and update/remove the containers with the .ini file
+```
+# Create
+distrobox-assemble create -f ./compose.ini
+
+# Update
+distrobox-assemble create --replace -f ./compose.ini
+
+# Destroy
+distrobox-assemble rm -f ./compose.ini
 ```
 
 # Steps after creating the image and creating the distroboxes
