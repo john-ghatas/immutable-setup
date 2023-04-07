@@ -6,10 +6,15 @@ podman build -f <file> -t <image_name>
 distrobox create -i localhost/<image_name> -n <distrobox_name>
 ```
 
-# Build the images and create them with the legacy method
+# Build the images and create them with the legacy method (running the non-repo version)
 ```
-podman build -f Containerfile.development -t fedora-dev-38
-distrobox create -i localhost/fedora-dev-38 -n fedora-development
+podman build -f Containerfile.development -t development-base
+podman build -f Containerfile.rstudio -t rstudio-base
+podman build -f Containerfile.general -t general-base
+
+distrobox create -i localhost/development-base -n development
+distrobox create -i localhost/general-base -n general
+distrobox create -i localhost/rstudio-base -n rstudio
 ```
 
 # Build for use with the .ini
