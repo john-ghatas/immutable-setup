@@ -17,6 +17,12 @@ distrobox create -i localhost/general-base -n general
 distrobox create -i localhost/rstudio-base -n rstudio
 ```
 
+# Create Container with NVIDIA graphics passthrough (not possible through .ini file)
+```
+distrobox create -i localhost/general-base -n gaming --nvidia --additional-packages "steam vim"
+```
+
+
 # Build for use with the .ini
 ```
 podman build -f Containerfile.development -t development-base
