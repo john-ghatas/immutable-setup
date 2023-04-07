@@ -25,6 +25,8 @@ podman build -f Containerfile.general -t general-base
 ```
 
 # Compose, and update/remove the containers with the .ini file
+Use the compose-nvidia.ini file if you have an NVIDIA GPU 
+
 ```
 # Create
 distrobox-assemble create -f ./compose.ini
