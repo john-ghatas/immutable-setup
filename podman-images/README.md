@@ -28,6 +28,7 @@ distrobox create -i localhost/general-base -n gaming --nvidia --additional-packa
 podman build -f Containerfile.development -t development-base
 podman build -f Containerfile.rstudio -t rstudio-base
 podman build -f Containerfile.general -t general-base
+podman build -f Containerfile.debian -t debian-base
 ```
 
 # Compose, and update/remove the containers with the .ini file

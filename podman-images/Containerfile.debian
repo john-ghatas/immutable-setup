@@ -1,0 +1,15 @@
+FROM debian:unstable
+
+# Base setup
+RUN apt update && apt full-upgrade -y
+RUN apt install software-properties-common -y
+
+# Enable the non-free and contrib repos
+RUN echo "deb http://http.us.debian.org/debian unstable main contrib non-free non-free-firmware" >> /etc/apt/sources.list
+RUN apt update
+
+# Install VSCodium
+RUN apt install wget curl sudo -y
+RUN wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | gpg --dearmor | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
+RUN echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' | tee /etc/apt/sources.list.d/vscodium.list
+RUN apt update && apt install codium -y 
