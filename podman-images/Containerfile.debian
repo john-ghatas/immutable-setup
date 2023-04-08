@@ -12,4 +12,7 @@ RUN apt update
 RUN apt install wget curl sudo -y
 RUN wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | gpg --dearmor | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
 RUN echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' | tee /etc/apt/sources.list.d/vscodium.list
-RUN apt update && apt install codium -y 
+RUN apt update && apt install codium -y
+
+# Install LaTeX
+RUN apt install texlive-full -y
