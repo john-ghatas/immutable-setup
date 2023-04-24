@@ -5,7 +5,7 @@ rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rele
 # Init flatpak
 echo "Enabling the Flathub repo..."
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak override --user --filesystem=~/.themes --filesystem=~/.config/gtk-4.0
+flatpak override --user --filesystem=$HOME/.themes --filesystem=$HOME/.icons --filesystem=$HOME/.config/gtk-4.0
 
 # Add udev rules for adb/fastboot and misc stuff grabbed from the uBlue repo
 sudo runuser -l root -c "curl https://raw.githubusercontent.com/M0Rf30/android-udev-rules/main/51-android.rules > /etc/udev/rules.d/51-android.rules; chmod +r /etc/udev/rules.d/51-android.rules"
