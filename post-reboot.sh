@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Setting up packages" 
-rpm-ostree install moby-engine ffmpeg gnome-tweaks gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly gstreamer1-vaapi neovim tilix zsh
+rpm-ostree install moby-engine gnome-tweaks gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly gstreamer1-vaapi neovim tilix zsh libavcodec-freeworld
 rpm-ostree override remove mesa-va-drivers --install mesa-va-drivers-freeworld
 rpm-ostree update --uninstall rpmfusion-free-release --uninstall rpmfusion-nonfree-release --install rpmfusion-free-release --install rpmfusion-nonfree-release
 
