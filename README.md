@@ -51,5 +51,12 @@ If you are trying to get PGP Mailing working with Thunderbird follow the steps m
 - Follow the mentioned [page](https://anweshadas.in/how-to-use-yubikey-or-any-gpg-smartcard-in-thunderbird-78/#:~:text=Configure%20the%20secret%20key%20usage%20form%20Yubikey&text=Type%20your%20Secret%20Key%20ID,your%20hardware%20token%20in%20Thunderbird.) to set Thunderbird up to work with your smartcard.
 
 
-## Changing the shell for the current user to ZSH
+## Changing the shell for the current user to ZSH`
 `sudo usermod --shell $(which zsh) $USER`
+
+## Install A GTK4 compliant theme (do this in a distrobox)
+```
+git clone https://github.com/vinceliuice/WhiteSur-gtk-theme
+<go to dir>
+./install.sh -m --darker -l -c Dark --icon fedora -N glassy -p 45
+```
