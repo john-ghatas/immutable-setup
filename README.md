@@ -58,5 +58,5 @@ If you are trying to get PGP Mailing working with Thunderbird follow the steps m
 ```
 git clone https://github.com/vinceliuice/WhiteSur-gtk-theme
 <go to dir>
-./install.sh --darker -l -c Dark --icon fedora -p 60
+./install.sh -m --darker -l -c Dark --icon fedora -N glassy -p 45
 ```
