@@ -1,6 +1,8 @@
 FROM quay.io/fedora/fedora:38
 # Base setup
 RUN sed -i "/tsflags=nodocs/d" /etc/dnf/dnf.conf
+RUN sed -i "s/installonly_limit.*/installonly_limit=6/g" /etc/dnf/dnf.conf
+RUN echo "max_parallel_downloads=20" >> /etc/dnf/dnf.conf
 RUN dnf update -y
 
 # Install the needed IDEs, base and devel packages
@@ -15,3 +17,6 @@ RUN dnf install codium -y
 
 # Enable RPMFusion
 RUN dnf install http://mirror.dst.ca/rpmfusion/free/fedora/rpmfusion-free-release-38.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-38.noarch.rpm -y
+
+# Install LaTeX
+RUN dnf install texlive-scheme-full -y

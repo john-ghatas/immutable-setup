@@ -2,6 +2,8 @@ FROM quay.io/fedora/fedora:38
 
 # Base setup
 RUN sed -i "/tsflags=nodocs/d" /etc/dnf/dnf.conf
+RUN sed -i "s/installonly_limit.*/installonly_limit=6/g" /etc/dnf/dnf.conf
+RUN echo "max_parallel_downloads=20" >> /etc/dnf/dnf.conf
 RUN dnf update -y
 
 # Install General Use applications
