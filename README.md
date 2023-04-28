@@ -60,3 +60,10 @@ git clone https://github.com/vinceliuice/WhiteSur-gtk-theme
 <go to dir>
 ./install.sh -m --darker -l -c Dark --icon fedora -N glassy -p 45
 ```
+
+Or opt for the Vimix theme
+```
+git clone https://github.com/vinceliuice/vimix-gtk-themes.git
+cd <dir>
+./install.sh -l -t ruby -c dark -s compact
+```
