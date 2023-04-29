@@ -61,9 +61,16 @@ git clone https://github.com/vinceliuice/WhiteSur-gtk-theme
 ./install.sh -m --darker -l -c Dark --icon fedora -N glassy -p 45
 ```
 
-Or opt for the Vimix theme
+Vimix theme
 ```
 git clone https://github.com/vinceliuice/vimix-gtk-themes.git
 cd <dir>
 ./install.sh -l -t ruby -c dark -s compact
+```
+
+Fluent GTK
+```
+git clone https://github.com/vinceliuice/Fluent-gtk-theme.git
+cd <dir>
+./install.sh -l -d ~/.themes -i fedora -s standard -c dark --tweaks round noborder blur
 ```
