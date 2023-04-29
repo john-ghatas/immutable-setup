@@ -9,3 +9,9 @@ RUN dnf update -y
 # Install General Use applications
 RUN dnf install firefox thunderbird gpgme pcsc-lite gpg neovim vim git libreoffice lm_sensors -y
 RUN dnf install http://mirror.dst.ca/rpmfusion/free/fedora/rpmfusion-free-release-38.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-38.noarch.rpm -y
+
+# Install Brave Browser
+RUN dnf install dnf-plugins-core -y 
+RUN dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo -y
+RUN rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+RUN dnf install brave-browser -y
