@@ -74,3 +74,11 @@ git clone https://github.com/vinceliuice/Fluent-gtk-theme.git
 cd <dir>
 ./install.sh -l -d ~/.themes -i fedora -s standard -c dark --tweaks round noborder blur
 ```
+
+Orchis
+```
+# Example is from Gnome 44
+git clone https://github.com/vinceliuice/Orchis-theme.git
+cd <dir>
+./install.sh -l -c dark -t teal --tweaks compact macos black submenu --round 5 --shell 44
+```
