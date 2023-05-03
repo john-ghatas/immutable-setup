@@ -11,10 +11,12 @@ distrobox create -i localhost/<image_name> -n <distrobox_name>
 podman build -f Containerfile.development -t development-base
 podman build -f Containerfile.rstudio -t rstudio-base
 podman build -f Containerfile.general -t general-base
+podman build -f Containerfile.ubuntu -t ubuntu-base
 
 distrobox create -i localhost/development-base -n development
 distrobox create -i localhost/general-base -n general
 distrobox create -i localhost/rstudio-base -n rstudio
+distrobox create -i localhost/ubuntu-base -n ubuntu
 ```
 
 # Create Container with NVIDIA graphics passthrough (not possible through .ini file)
@@ -28,6 +30,7 @@ distrobox create -i localhost/general-base -n gaming --nvidia --additional-packa
 podman build -f Containerfile.development -t development-base
 podman build -f Containerfile.rstudio -t rstudio-base
 podman build -f Containerfile.general -t general-base
+podman build -f Containerfile.ubuntu -t ubuntu-base
 ```
 
 # Compose, and update/remove the containers with the .ini file
