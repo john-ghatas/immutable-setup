@@ -5,7 +5,8 @@ With the nature of fedora Silverblue/Kinoite multiple scripts are needed with mu
 - Rebase to a uBlue spin listed in https://ublue.it/images/ (silverblue-main, silverblue-nvidia or the kinoite variants are recommended try any other image at your own descretion)
 - Reboot
 - `./post-reboot.sh` 
-
+- If you have an NVIDIA card installed and you have the Nvidia spins installed run the nvidia-post.sh script
+`./nvidia-steps.sh`
 
 # Fixing Docker permissions
 Run the following commands to add yourself to the Docker group to run docker commands as your own user.
