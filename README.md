@@ -6,7 +6,15 @@ With the nature of fedora Silverblue/Kinoite multiple scripts are needed with mu
 - Reboot
 - `./post-reboot.sh` 
 - If you have an NVIDIA card installed and you have the Nvidia spins installed run the nvidia-post.sh script
-`./nvidia-steps.sh`
+    - Only run this if the driver is not loaded in check this with `nvidia-smi`
+    - The output should look like this
+        ```
+        ❯ nvidia-smi
+        Sat May  6 11:55:57 2023       
+        +---------------------------------------------------------------------------------------+
+        | NVIDIA-SMI 530.41.03              Driver Version: 530.41.03    CUDA Version: 12.1     |
+        ```
+    - `./nvidia-steps.sh`
 
 # Fixing Docker permissions
 Run the following commands to add yourself to the Docker group to run docker commands as your own user.
