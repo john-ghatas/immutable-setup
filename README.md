@@ -72,3 +72,6 @@ git clone https://github.com/vinceliuice/Orchis-theme.git
 cd <dir>
 ./install.sh -l -c dark -t teal --tweaks compact macos black submenu --round 5 --shell 44
 ```
+
+## Yubikey Issues
+YubiKeys can be problematic when PIV mode is enabled, disable PIV mode with ykman (install it in a distrobox or overlay it which ever you prefer) and it should be picked up by GnuPG
