@@ -15,3 +15,6 @@ RUN dnf install dnf-plugins-core -y
 RUN dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo -y
 RUN rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 RUN dnf install brave-browser -y
+
+# Install codecs
+RUN dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y

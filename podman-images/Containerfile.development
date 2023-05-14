@@ -20,3 +20,6 @@ RUN dnf install http://mirror.dst.ca/rpmfusion/free/fedora/rpmfusion-free-releas
 
 # Install LaTeX
 RUN dnf install texlive-scheme-full -y
+
+# Install codecs
+RUN dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
