@@ -6,7 +6,8 @@ With the nature of fedora Silverblue/Kinoite multiple scripts are needed with mu
 - Reboot
 - `./post-reboot.sh` 
 - If you have an NVIDIA card installed and you have the Nvidia spins installed run the nvidia-post.sh script
-    - Only run this if the driver is not loaded in check this with `nvidia-smi`
+    - `./nvidia-steps.sh`
+    - After reboot check if the driver is loaded with `nvidia-smi`
     - The output should look like this
         ```
         ❯ nvidia-smi
@@ -14,7 +15,9 @@ With the nature of fedora Silverblue/Kinoite multiple scripts are needed with mu
         +---------------------------------------------------------------------------------------+
         | NVIDIA-SMI 530.41.03              Driver Version: 530.41.03    CUDA Version: 12.1     |
         ```
-    - `./nvidia-steps.sh`
+    - To enable secure boot with the nvidia drivers loaded run `sudo mokutil --import /etc/pki/akmods/certs/akmods-nvidia.der` 
+        - The password is to be created (should not be complicated, it's just a verification that you wanted the certirficate installed).
+        - After reboot import the certificate when the MOK screen shows up (input the password you used to create the certificate)
 
 # Fixing Docker permissions
 Run the following commands to add yourself to the Docker group to run docker commands as your own user.
@@ -41,7 +44,7 @@ If you are trying to get PGP Mailing working with Thunderbird follow the steps m
 - Follow this [page](https://anweshadas.in/how-to-use-yubikey-or-any-gpg-smartcard-in-thunderbird-78/#:~:text=Configure%20the%20secret%20key%20usage%20form%20Yubikey&text=Type%20your%20Secret%20Key%20ID,your%20hardware%20token%20in%20Thunderbird.) to set Thunderbird up to work with your smartcard.
 
 
-## Changing the shell for the current user to ZSH`
+## Changing the shell for the current user to ZSH
 `sudo usermod --shell $(which zsh) $USER`
 
 ## Install A GTK4 compliant theme (do this in a distrobox)
