@@ -15,8 +15,12 @@ With the nature of fedora Silverblue/Kinoite multiple scripts are needed with mu
         +---------------------------------------------------------------------------------------+
         | NVIDIA-SMI 530.41.03              Driver Version: 530.41.03    CUDA Version: 12.1     |
         ```
-    - To enable secure boot with the nvidia drivers loaded run `sudo mokutil --import /etc/pki/akmods/certs/akmods-nvidia.der` 
-        - The password is to be created (should not be complicated, it's just a verification that you wanted the certirficate installed).
+    - If you dont get similar ouput, you need to enable secure boot with the nvidia drivers loaded run 
+        ```
+        sudo mokutil --import /etc/pki/akmods/certs/akmods-nvidia.der
+        sudo mokutil --import /etc/pki/akmods/certs/akmods-ublue.der
+        ``` 
+        - The password is to be created (should not be complicated, it's just a verification that you wanted the certirficate installed). For example it can only be a <5 character password, it's a one time password to enroll the keys.
         - After reboot import the certificate when the MOK screen shows up (input the password you used to create the certificate)
 
 # Fixing Docker permissions
