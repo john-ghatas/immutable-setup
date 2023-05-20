@@ -1,4 +1,4 @@
-e!/bin/bash
+#!/bin/bash
 echo "Setting up packages" 
 rpm-ostree install android-tools docker gnome-shell-extension-user-theme neovim tilix zsh
 
