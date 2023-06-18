@@ -5,9 +5,6 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt full-upgrade -y
 RUN apt install software-properties-common -y
 
-# Install tzdata and mark it to be held
-RUN apt update && apt-get install tzdata && apt-mark hold tzdata
-
 # Add IntelliJ IDEA
 RUN add-apt-repository ppa:mmk2410/intellij-idea -y
 RUN apt update
