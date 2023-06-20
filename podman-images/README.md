@@ -1,12 +1,7 @@
 # A collection of podman images to rebuild containers quickly
-Contains various purpose images for containers, to build them run the commands listed below. Change the 
+Contains various purpose images for containers, to build them run the commands listed below. 
 
-```
-podman build -f <file> -t <image_name>
-distrobox create -i localhost/<image_name> -n <distrobox_name>
-```
-
-# Build the images and create them with the legacy method (running the non-repo version)
+# Build the images and create them with the legacy method
 ```
 podman build -f Containerfile.development -t development-base
 podman build -f Containerfile.rstudio -t rstudio-base
@@ -18,12 +13,6 @@ distrobox create -i localhost/general-base -n general
 distrobox create -i localhost/rstudio-base -n rstudio
 distrobox create -i localhost/ubuntu-base -n ubuntu
 ```
-
-# Create Container with NVIDIA graphics passthrough (not possible through .ini file)
-```
-distrobox create -i localhost/general-base -n gaming --nvidia --additional-packages "steam vim"
-```
-
 
 # Build for use with the .ini
 ```

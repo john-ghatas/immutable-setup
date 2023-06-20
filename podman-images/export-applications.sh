@@ -7,7 +7,7 @@ APPS_RSTUDIO=(rstudio)
 APPS_UBUNTU=(intellij-idea-community)
 APPS_DEVELOPMENT=(codium)
 
-BIN_DEVELOPMENT=(jq)
+BIN_DEVELOPMENT=(jq tig)
 
 for env in "${CONTAINER[@]}"
 do
