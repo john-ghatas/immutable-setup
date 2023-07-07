@@ -15,6 +15,7 @@ do
 	declare -n APPS_ARR=APPS_${env^^}
 	if [ -n "${!APPS_ARR}" ]; then
 		echo "Found applications to export for $env"
+		for application in "${APPS_ARR[@]}"; do distrobox-enter -n $env -- distrobox-export --app $application -d; done
 		for application in "${APPS_ARR[@]}"; do distrobox-enter -n $env -- distrobox-export --app $application; done
 	fi
 
@@ -22,6 +23,7 @@ do
 	declare -n BIN_ARR=BIN_${env^^}
 	if [ -n "${!BIN_ARR}" ]; then
 		echo "Found binaries to export for $env"
+		for binary in "${BIN_ARR[@]}"; do distrobox-enter -n $env -- distrobox-export --bin /usr/bin/$binary --export-path ~/.local/bin -d; done
 		for binary in "${BIN_ARR[@]}"; do distrobox-enter -n $env -- distrobox-export --bin /usr/bin/$binary --export-path ~/.local/bin; done
 	fi
 done
