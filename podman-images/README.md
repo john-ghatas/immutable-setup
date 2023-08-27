@@ -27,13 +27,13 @@ Use the compose-nvidia.ini file if you have an NVIDIA GPU
 
 ```
 # Create
-distrobox-assemble create -f ./compose.ini
+distrobox-assemble create --file ./compose.ini
 
 # Update
-distrobox-assemble create --replace -f ./compose.ini
+distrobox-assemble create --file ./compose.ini --replace
 
 # Destroy
-distrobox-assemble rm -f ./compose.ini
+distrobox-assemble rm --file ./compose.ini
 ```
 
 # Steps after creating the image and creating the distroboxes

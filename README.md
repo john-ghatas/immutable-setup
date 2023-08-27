@@ -1,12 +1,22 @@
 # How to use the script
-With the nature of fedora Silverblue/Kinoite multiple scripts are needed with multiple reboot. The following order of the script is needed to make this work, **Please take note of what dedicated/primary GPU your system is using (AMD/INTEL/NVIDIA)**:
+With the nature of fedora Silverblue/Kinoite multiple reboots are needed to get the initial setup steps done. The following order of the script is needed to make this work, **Please take note of what dedicated/primary GPU your system is using (AMD/INTEL/NVIDIA)**:
 
-- `./init-setup.sh`
-- Rebase to a uBlue spin listed in https://ublue.it/images/ (silverblue-main, silverblue-nvidia or the kinoite variants are recommended try any other image at your own descretion)
-- Reboot
-- `./post-reboot.sh` 
+After you have rebased to a uBlue image run the suit of scripts
+
+- `./post-rebase.sh`
+    - If you run an AMD/Intel system this is the only operation needed
+    - After running the script import the secure boot key [optional, but highly recommended]
+    ```
+    just enroll-secure-boot-key
+    ```
 - If you have an NVIDIA card installed and you have the Nvidia spins installed run the nvidia-post.sh script
     - `./nvidia-steps.sh`
+    - Import the uBlue keys to MOK 
+        ```
+        just enroll-secure-boot-key
+        ``` 
+        - The password is to be created (should not be complicated, it's just a verification that you wanted the certirficate installed). For example it can only be a <5 character password, it's a one time password to enroll the keys.
+        - After reboot import the certificate when the MOK screen shows up (input the password you used to create the certificate)
     - After reboot check if the driver is loaded with `nvidia-smi`
     - The output should look like this
         ```
@@ -15,13 +25,6 @@ With the nature of fedora Silverblue/Kinoite multiple scripts are needed with mu
         +---------------------------------------------------------------------------------------+
         | NVIDIA-SMI 530.41.03              Driver Version: 530.41.03    CUDA Version: 12.1     |
         ```
-    - If you dont get similar ouput, you need to enable secure boot with the nvidia drivers loaded run 
-        ```
-        sudo mokutil --import /etc/pki/akmods/certs/akmods-nvidia.der
-        sudo mokutil --import /etc/pki/akmods/certs/akmods-ublue.der
-        ``` 
-        - The password is to be created (should not be complicated, it's just a verification that you wanted the certirficate installed). For example it can only be a <5 character password, it's a one time password to enroll the keys.
-        - After reboot import the certificate when the MOK screen shows up (input the password you used to create the certificate)
 
 # Fixing Docker permissions
 Run the following commands to add yourself to the Docker group to run docker commands as your own user.
