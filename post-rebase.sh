@@ -7,8 +7,7 @@ systemctl enable --user --now podman.socket
 sudo systemctl enable --now fstrim.timer
 
 # Init flatpak
-echo "Enabling the Flathub repo..."
-flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+echo "Enabling needed overrides for Flatpak Theming"
 flatpak override --user --filesystem=$HOME/.themes --filesystem=$HOME/.icons --filesystem=$HOME/.config/gtk-4.0
 
 # Add udev rules for adb/fastboot 
