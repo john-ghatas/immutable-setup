@@ -1,4 +1,4 @@
-FROM quay.io/fedora/fedora:38
+FROM quay.io/fedora/fedora:39
 # Base setup
 RUN sed -i "/tsflags=nodocs/d" /etc/dnf/dnf.conf
 RUN sed -i "s/installonly_limit.*/installonly_limit=6/g" /etc/dnf/dnf.conf
@@ -16,7 +16,7 @@ RUN printf "[gitlab.com_paulcarroty_vscodium_repo]\nname=download.vscodium.com\n
 RUN dnf install codium -y
 
 # Enable RPMFusion
-RUN dnf install http://mirror.dst.ca/rpmfusion/free/fedora/rpmfusion-free-release-38.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-38.noarch.rpm -y
+RUN dnf install http://mirror.dst.ca/rpmfusion/free/fedora/rpmfusion-free-release-39.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-39.noarch.rpm -y
 
 # Install LaTeX
 RUN dnf install texlive-scheme-full -y
