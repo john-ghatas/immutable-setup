@@ -2,29 +2,18 @@
 # This file is made to use with docker only, for the podman 
 # commands please go to the README.md
 
-# Prune the system before starting the build
+# Prune the system before starting the build and enable buildx
 echo "y" | docker system prune -a --volumes 
+docker buildx create --use
 
 # General container build
-docker build -t general-base - < Containerfile.general
+docker buildx build -t johngh/distrobox-images:general-base  --platform linux/amd64,linux/arm64 --push - < Containerfile.general
 
 # Ubuntu container build
-docker build -t ubuntu-base - < Containerfile.ubuntu
+docker buildx build -t johngh/distrobox-images:ubuntu-base  --platform linux/amd64,linux/arm64 --push - < Containerfile.ubuntu
 
 # Rstudio container build
-docker build -t rstudio-base - < Containerfile.rstudio
+docker buildx build -t johngh/distrobox-images:rstudio-base  --platform linux/amd64,linux/arm64 --push - < Containerfile.rstudio
 
 # Development container build
-docker build -t development-base - < Containerfile.development 
-
-# Tag the images
-docker tag general-base johngh/distrobox-images:general-base
-docker tag ubuntu-base johngh/distrobox-images:ubuntu-base
-docker tag rstudio-base johngh/distrobox-images:rstudio-base
-docker tag development-base johngh/distrobox-images:development-base
-
-# Push the images
-docker push johngh/distrobox-images:rstudio-base
-docker push johngh/distrobox-images:ubuntu-base
-docker push johngh/distrobox-images:general-base
-docker push johngh/distrobox-images:development-base
+docker buildx build -t johngh/distrobox-images:development-base  --platform linux/amd64,linux/arm64 --push - < Containerfile.development
