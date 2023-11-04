@@ -7,13 +7,13 @@ echo "y" | docker system prune -a --volumes
 docker buildx create --use
 
 # General container build
-docker buildx build -t johngh/distrobox-images:general-base  --platform linux/amd64,linux/arm64 --push - < Containerfile.general
+docker buildx build -t johngh/distrobox-images:general-base  --platform linux/amd64 --push - < Containerfile.general
 
 # Ubuntu container build
-docker buildx build -t johngh/distrobox-images:ubuntu-base  --platform linux/amd64,linux/arm64 --push - < Containerfile.ubuntu
+docker buildx build -t johngh/distrobox-images:ubuntu-base  --platform linux/amd64 --push - < Containerfile.ubuntu
 
 # Rstudio container build
-docker buildx build -t johngh/distrobox-images:rstudio-base  --platform linux/amd64,linux/arm64 --push - < Containerfile.rstudio
+docker buildx build -t johngh/distrobox-images:rstudio-base  --platform linux/amd64 --push - < Containerfile.rstudio
 
 # Development container build
-docker buildx build -t johngh/distrobox-images:development-base  --platform linux/amd64,linux/arm64 --push - < Containerfile.development
+docker buildx build -t johngh/distrobox-images:development-base  --platform linux/amd64 --push - < Containerfile.development
