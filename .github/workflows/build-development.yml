@@ -9,6 +9,9 @@ jobs:
   build-development:
     runs-on: ubuntu-latest
     steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%d%m%Y')"
       - name: Checkout Code
         uses: actions/checkout@v4.1.1
       - name: Set up QEMU
@@ -27,4 +30,4 @@ jobs:
           file: ./podman-images/Containerfile.development
           push: true
           platforms: linux/amd64
-          tags: johngh/distrobox-images:development-base, johngh/distrobox-images:development-base-amd64, johngh/distrobox-images:development-base-38, johngh/distrobox-images:development-base-38-${{ github.workflow.sha }}
+          tags: johngh/distrobox-images:development-base, johngh/distrobox-images:development-base-amd64, johngh/distrobox-images:development-base-38, johngh/distrobox-images:development-base-38-${{ steps.date.outputs.date }}
