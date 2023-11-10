@@ -10,7 +10,8 @@ sudo systemctl enable --now fstrim.timer
 echo "Enabling needed overrides for Flatpak Theming"
 flatpak override --user --filesystem=$HOME/.themes --filesystem=$HOME/.icons --filesystem=$HOME/.config/gtk-4.0
 
-# Add udev rules for adb/fastboot 
+# Add udev rules for adb/fastboot and usevia.app 
 curl https://raw.githubusercontent.com/M0Rf30/android-udev-rules/main/51-android.rules | sudo tee /etc/udev/rules.d/51-android.rules; sudo chmod +r /etc/udev/rules.d/51-android.rules
+echo 'KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666", TAG+="uaccess", TAG+="udev-acl"' | sudo tee /etc/udev/rules.d/92-viia.rules
 
 echo "Please reboot again to make the changes final" 
