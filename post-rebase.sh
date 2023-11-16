@@ -8,6 +8,7 @@ sudo systemctl enable --now fstrim.timer
 
 # Init flatpak
 echo "Enabling needed overrides for Flatpak Theming"
+flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak override --user --filesystem=$HOME/.themes --filesystem=$HOME/.icons --filesystem=$HOME/.config/gtk-4.0
 
 # Add udev rules for adb/fastboot and usevia.app 
