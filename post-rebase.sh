@@ -2,9 +2,11 @@
 echo "Setting up packages" 
 rpm-ostree install android-tools docker gnome-shell-extension-user-theme neovim tilix zsh
 
-# Enabling the podman services and the TRIM service
+# Enabling the podman services and the TRIM service, ensure auto updates
 systemctl enable --user --now podman.socket
 sudo systemctl enable --now fstrim.timer
+sudo systemctl enable --now rpm-ostreed-automatic
+systemctl --user enable --now gpg-agent.socket
 
 # Init flatpak
 echo "Enabling needed overrides for Flatpak Theming"
