@@ -6,12 +6,14 @@ rpm-ostree install android-tools docker gnome-shell-extension-user-theme neovim 
 systemctl enable --user --now podman.socket
 sudo systemctl enable --now fstrim.timer
 sudo systemctl enable --now rpm-ostreed-automatic
-systemctl --user enable --now gpg-agent.socket
 
 # Init flatpak
 echo "Enabling needed overrides for Flatpak Theming"
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak override --user --filesystem=$HOME/.themes --filesystem=$HOME/.icons --filesystem=$HOME/.config/gtk-4.0
+
+# Init GPG
+gpg-agent --daemon --enable-ssh-support
 
 # Add udev rules for adb/fastboot and usevia.app 
 curl https://raw.githubusercontent.com/M0Rf30/android-udev-rules/main/51-android.rules | sudo tee /etc/udev/rules.d/51-android.rules; sudo chmod +r /etc/udev/rules.d/51-android.rules
