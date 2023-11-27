@@ -14,7 +14,7 @@ RUN dnf install fribidi-devel libcurl-devel libtiff-devel openssl-devel R-base l
 RUN dnf install rstudio-desktop -y
 
 # Enable RPMFusion
-RUN dnf install http://mirror.dst.ca/rpmfusion/free/fedora/rpmfusion-free-release-38.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-38.noarch.rpm -y
+RUN dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y 
 
 # Install codecs
 RUN dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
