@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Setting up packages" 
-rpm-ostree install android-tools docker gnome-shell-extension-user-theme neovim tilix zsh
+rpm-ostree install android-tools gnome-shell-extension-user-theme neovim tilix zsh
 
 # Enabling the podman services and the TRIM service, ensure auto updates
 systemctl enable --user --now podman.socket
