@@ -2,7 +2,7 @@
 CONTAINER=(general rstudio ubuntu development)
 
 # All binaries and apps from each container
-APPS_GENERAL=(thunderbird brave-browser)
+APPS_GENERAL=(thunderbird)
 APPS_RSTUDIO=(rstudio)
 APPS_UBUNTU=(intellij-idea-community)
 APPS_DEVELOPMENT=(codium)
