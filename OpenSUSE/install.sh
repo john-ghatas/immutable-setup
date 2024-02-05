@@ -10,7 +10,7 @@ read -p "Enter the desired hostname: " NEW_HOSTNAME
 echo -e "-------------------\nSTARTING INIT SETUP\n-------------------"
 # Installing packages
 echo "Install packages of the host system"
-sudo transactional-update -n --quiet pkg install docker docker-compose zsh neovim gnome-tweaks tilix git android-tools dirmngr
+sudo transactional-update -n --quiet pkg install docker docker-compose zsh neovim gnome-tweaks tilix git android-tools dirmngr bind-utils
 
 echo "Adding rights for docker to the current user"
 sudo usermod -aG docker $USER
