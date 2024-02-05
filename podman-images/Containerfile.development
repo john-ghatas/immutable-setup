@@ -6,7 +6,7 @@ RUN echo "max_parallel_downloads=20" >> /etc/dnf/dnf.conf
 RUN dnf update -y
 
 # Install the needed IDEs, base and devel packages
-RUN dnf install git neovim plocate ansible dotnet-sdk-7.0 -y
+RUN dnf install git neovim plocate ansible dotnet-sdk-7.0 fuse fuse-devel -y
 RUN dnf install fribidi-devel libcurl-devel libjpeg-turbo-devel libtiff-devel openssl-devel -y
 RUN dnf install python python-pip lm_sensors tig tree -y
 
