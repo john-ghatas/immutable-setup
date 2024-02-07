@@ -27,7 +27,7 @@ tar -xvf adw-gtk3*tar.xz -C ~/.themes > /dev/null
 rm adw-gtk3*tar.xz
 
 # Flatpak install and set the dark theme as the default GTK theme
-flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark -y
 gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
 
 echo "Enable fractional scaling"
