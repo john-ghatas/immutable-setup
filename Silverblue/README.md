@@ -36,6 +36,11 @@ exit
 docker run hello-world
 ```
 # EXTRA NOTES
+## Using GPG with a 
+Due to a clash with PCSCD it recommended to disable the systemd service
+```
+sudo systemctl stop {pcscd,pcscd.socket
+```
 
 ## PGP Mail client
 If you are trying to get PGP Mailing working with Thunderbird follow the steps mentioned below (**only concerning the PGP mailing with smartcards**): 
