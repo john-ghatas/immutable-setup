@@ -1,4 +1,4 @@
-name: Build Development image for AMD64 
+name: Build Ubuntu image for AMD64 
 on:
   push:
     branches:
