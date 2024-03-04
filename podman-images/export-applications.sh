@@ -9,6 +9,8 @@ APPS_DEVELOPMENT=(codium)
 
 BIN_DEVELOPMENT=(/usr/bin/jq /usr/bin/nc /usr/bin/tig /usr/bin/ansible-playbook /usr/bin/ansible-galaxy /usr/local/bin/kind /usr/local/bin/kubectl /usr/local/bin/devbox)
 
+# Install devbox on the local user
+distrobox enter development -- 'bash -c "$(curl -fsSL https://get.jetpack.io/devbox) -f"'
 
 for env in "${CONTAINER[@]}"
 do
