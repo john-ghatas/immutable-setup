@@ -1,4 +1,4 @@
-FROM quay.io/fedora/fedora:39
+FROM quay.io/fedora/fedora:40
 # Base setup
 RUN sed -i "/tsflags=nodocs/d" /etc/dnf/dnf.conf
 RUN sed -i "s/installonly_limit.*/installonly_limit=6/g" /etc/dnf/dnf.conf
