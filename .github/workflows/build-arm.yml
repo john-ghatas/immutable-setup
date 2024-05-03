@@ -1,0 +1,110 @@
+name: Build ARM Images for Ubuntu, Development, General and RStudio (In use after Github Ubuntu runners are available, MacOS not stable for Docker)
+on:
+  push:
+    branches:
+      - 'master'
+  schedule:
+    - cron: '5 4 * * *' 
+jobs:
+   placeholder:
+     runs-on: macos-latest
+     steps:
+       - name: Checkout Code
+         uses: actions/checkout@v4.1.1
+
+#   build-ubuntu:
+#     runs-on: macos-latest
+#     steps:
+#       - name: Get current date
+#         id: date
+#         run: echo "::set-output name=date::$(date +'%d%m%Y')"
+#       - name: Checkout Code
+#         uses: actions/checkout@v4.1.1
+#       - name: Set up Docker
+#         uses: crazy-max/ghaction-setup-docker@v3.2.0
+#       - name: Set up Docker Buildx
+#         uses: docker/setup-buildx-action@v3
+#       - name: Login to docker.io container registry
+#         uses: docker/login-action@v3
+#         with:
+#           username: ${{ secrets.DOCKERHUB_USERNAME }}
+#           password: ${{ secrets.DOCKERHUB_TOKEN }}
+#       - name: Build and push Docker image
+#         uses: docker/build-push-action@v5
+#         with:
+#           context: .
+#           file: ./podman-images/Containerfile.ubuntu
+#           push: true
+#           tags: johngh/distrobox-images:ubuntu-base-arm, johngh/distrobox-images:ubuntu-base-arm64, johngh/distrobox-images:ubuntu-base-22-arm, johngh/distrobox-images:ubuntu-base-22-${{ steps.date.outputs.date }}-arm
+#   build-development:
+#     runs-on: macos-latest
+#     steps:
+#       - name: Get current date
+#         id: date
+#         run: echo "::set-output name=date::$(date +'%d%m%Y')"
+#       - name: Checkout Code
+#         uses: actions/checkout@v4.1.1
+#       - name: Set up Docker
+#         uses: crazy-max/ghaction-setup-docker@v3.2.0
+#       - name: Set up Docker Buildx
+#         uses: docker/setup-buildx-action@v3
+#       - name: Login to docker.io container registry
+#         uses: docker/login-action@v3
+#         with:
+#           username: ${{ secrets.DOCKERHUB_USERNAME }}
+#           password: ${{ secrets.DOCKERHUB_TOKEN }}
+#       - name: Build and push Docker image
+#         uses: docker/build-push-action@v5
+#         with:
+#           context: .
+#           file: ./podman-images/Containerfile.development
+#           push: true
+#           tags: johngh/distrobox-images:development-base-arm, johngh/distrobox-images:development-base-arm64, johngh/distrobox-images:development-base-40-arm, johngh/distrobox-images:development-base-40-${{ steps.date.outputs.date }}-arm
+#   build-general:
+#     runs-on: macos-latest
+#     steps:
+#       - name: Get current date
+#         id: date
+#         run: echo "::set-output name=date::$(date +'%d%m%Y')"
+#       - name: Checkout Code
+#         uses: actions/checkout@v4.1.1
+#       - name: Set up Docker
+#         uses: crazy-max/ghaction-setup-docker@v3.2.0
+#       - name: Set up Docker Buildx
+#         uses: docker/setup-buildx-action@v3
+#       - name: Login to docker.io container registry
+#         uses: docker/login-action@v3
+#         with:
+#           username: ${{ secrets.DOCKERHUB_USERNAME }}
+#           password: ${{ secrets.DOCKERHUB_TOKEN }}
+#       - name: Build and push Docker image
+#         uses: docker/build-push-action@v5
+#         with:
+#           context: .
+#           file: ./podman-images/Containerfile.general
+#           push: true
+#           tags: johngh/distrobox-images:general-base-arm, johngh/distrobox-images:general-base-arm64, johngh/distrobox-images:general-base-40-arm, johngh/distrobox-images:general-base-40-${{ steps.date.outputs.date }}-arm
+#   build-rstudio:
+#     runs-on: macos-latest
+#     steps:
+#       - name: Get current date
+#         id: date
+#         run: echo "::set-output name=date::$(date +'%d%m%Y')"
+#       - name: Checkout Code
+#         uses: actions/checkout@v4.1.1
+#       - name: Set up Docker
+#         uses: crazy-max/ghaction-setup-docker@v3.2.0
+#       - name: Set up Docker Buildx
+#         uses: docker/setup-buildx-action@v3
+#       - name: Login to docker.io container registry
+#         uses: docker/login-action@v3
+#         with:
+#           username: ${{ secrets.DOCKERHUB_USERNAME }}
+#           password: ${{ secrets.DOCKERHUB_TOKEN }}
+#       - name: Build and push Docker image
+#         uses: docker/build-push-action@v5
+#         with:
+#           context: .
+#           file: ./podman-images/Containerfile.rstudio
+#           push: true
+#           tags: johngh/distrobox-images:rstudio-base-arm, johngh/distrobox-images:rstudio-base-arm64, johngh/distrobox-images:rstudio-base-40-arm, johngh/distrobox-images:rstudio-base-40-${{ steps.date.outputs.date }}-arm
