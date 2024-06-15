@@ -35,7 +35,7 @@ jobs:
 #           context: .
 #           file: ./podman-images/Containerfile.ubuntu
 #           push: true
-#           tags: johngh/distrobox-images:ubuntu-base-arm, johngh/distrobox-images:ubuntu-base-arm64, johngh/distrobox-images:ubuntu-base-22-arm, johngh/distrobox-images:ubuntu-base-22-${{ steps.date.outputs.date }}-arm
+#           tags: johngh/distrobox-images:ubuntu-base-arm, johngh/distrobox-images:ubuntu-base-arm64, johngh/distrobox-images:ubuntu-base-24-arm, johngh/distrobox-images:ubuntu-base-24-${{ steps.date.outputs.date }}-arm
 #   build-development:
 #     runs-on: macos-latest
 #     steps:

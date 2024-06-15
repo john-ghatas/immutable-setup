@@ -1,6 +1,10 @@
 # How to use the script
 With the nature of fedora Silverblue/Kinoite multiple reboots are needed to get the initial setup steps done. The following order of the script is needed to make this work, **Please take note of what dedicated/primary GPU your system is using (AMD/INTEL/NVIDIA)**:
 
+A total overview of the raw images is provided in https://github.com/orgs/ublue-os/packages
+
+For rebasing to the desired image please use the instructions provided in https://universal-blue.discourse.group/docs?topic=868
+
 After you have rebased to a uBlue image run the suit of scripts
 
 - `./post-rebase.sh`

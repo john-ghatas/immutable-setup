@@ -1,9 +1,9 @@
-FROM ubuntu:jammy
+FROM ubuntu:noble
 
 # Base setup
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt full-upgrade -y
-RUN apt install software-properties-common -y
+RUN apt install software-properties-common apt-transport-https -y
 
 # Add IntelliJ IDEA
 RUN add-apt-repository ppa:mmk2410/intellij-idea -y
@@ -11,4 +11,4 @@ RUN apt update
 RUN apt install intellij-idea-community -y
 
 # Install utility packages
-RUN apt install git nvtop vim neovim pipx netcat default-jdk htop openssl lm-sensors -y
+RUN apt install git nvtop vim neovim pipx netcat-openbsd default-jdk htop openssl lm-sensors -y

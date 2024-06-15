@@ -28,7 +28,7 @@ jobs:
           file: ./podman-images/Containerfile.ubuntu
           push: true
           platforms: linux/amd64
-          tags: johngh/distrobox-images:ubuntu-base, johngh/distrobox-images:ubuntu-base-amd64, johngh/distrobox-images:ubuntu-base-22, johngh/distrobox-images:ubuntu-base-22-${{ steps.date.outputs.date }}
+          tags: johngh/distrobox-images:ubuntu-base, johngh/distrobox-images:ubuntu-base-amd64, johngh/distrobox-images:ubuntu-base-24, johngh/distrobox-images:ubuntu-base-24-${{ steps.date.outputs.date }}
   build-development:
     runs-on: ubuntu-latest
     steps:
