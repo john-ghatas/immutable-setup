@@ -2,8 +2,7 @@
 echo "Setting up packages" 
 rpm-ostree install android-tools gnome-shell-extension-user-theme neovim tilix zsh
 
-# Enabling the podman services and the TRIM service, ensure auto updates
-systemctl enable --user --now podman.socket
+# Ensure the FSTrim is enabled and auto updates are running frequently
 sudo systemctl enable --now fstrim.timer
 sudo systemctl enable --now rpm-ostreed-automatic
 
@@ -17,6 +16,5 @@ systemctl --user enable --now  gpg-agent.socket gpg-agent-extra.socket  gpg-agen
 
 # Add udev rules for adb/fastboot and usevia.app 
 curl https://raw.githubusercontent.com/M0Rf30/android-udev-rules/main/51-android.rules | sudo tee /etc/udev/rules.d/51-android.rules; sudo chmod +r /etc/udev/rules.d/51-android.rules
-echo 'KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666", TAG+="uaccess", TAG+="udev-acl"' | sudo tee /etc/udev/rules.d/92-viia.rules
 
 echo "Please reboot again to make the changes final" 

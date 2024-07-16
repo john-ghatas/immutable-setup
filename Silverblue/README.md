@@ -5,6 +5,46 @@ A total overview of the raw images is provided in https://github.com/orgs/ublue-
 
 For rebasing to the desired image please use the instructions provided in https://universal-blue.discourse.group/docs?topic=868
 
+## Recommended images and quickstart
+
+I would recommend using either [Bluefin (GNOME)](https://projectbluefin.io/) or [Aurora(KDE)](https://getaurora.dev/)
+
+### Install options
+
+You can install by grabbing the ISO from the websites mentioned above directly or rebase from an existing installation
+
+### Rebasing
+When rebasing you can pick between 2 variants; the normal edition and the developer edition which will yield extras like pre-installed `brew`, `docker` and Kubernetes libraries.
+
+The tags used in this example are for Fedora 40, you can replace the `40` with `gts` (Current Fedora version - 1) or `latest`.
+
+**Bluefin**
+```
+# Normal variant - Example is the Fedora 40 spin
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/ublue-os/bluefin:40
+-> Reboot
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bluefin:40
+
+# Developer Edition
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/ublue-os/bluefin-dx:40
+-> Reboot
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bluefin-dx:40
+```
+
+**Aurora**
+```
+# Normal variant - Example is the Fedora 40 spin
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/ublue-os/aurora:40
+-> Reboot
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/aurora:40
+
+# Developer Edition
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/ublue-os/aurora-dx:40
+-> Reboot
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/aurora-dx:40
+```
+
+## Post-rebase
 After you have rebased to a uBlue image run the suit of scripts
 
 - `./post-rebase.sh`
@@ -30,15 +70,7 @@ After you have rebased to a uBlue image run the suit of scripts
         | NVIDIA-SMI 530.41.03              Driver Version: 530.41.03    CUDA Version: 12.1     |
         ```
 
-# Fixing Docker permissions
-Run the following commands to add yourself to the Docker group to run docker commands as your own user.
-```
-sudo su -
-grep -E '^docker:' /usr/lib/group >> /etc/group
-usermod -aG docker <your_user>
-exit
-docker run hello-world
-```
+
 # EXTRA NOTES
 ## Using GPG with a 
 Due to a clash with PCSCD it recommended to disable the systemd service
