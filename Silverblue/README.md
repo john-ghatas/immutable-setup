@@ -51,8 +51,10 @@ After you have rebased to a uBlue image run the suit of scripts
     - If you run an AMD/Intel system this is the only operation needed
     - After running the script import the secure boot key [optional, but highly recommended]
     ```
-    just enroll-secure-boot-key
+    ujust enroll-secure-boot-key
     ```
+    The default password is noted in https://github.com/ublue-os/bluefin?tab=readme-ov-file#secure-boot if it isn't printed out in the terminal.
+
 - If you have an NVIDIA card installed and you have the Nvidia spins installed run the nvidia-post.sh script
     - `./nvidia-steps.sh`
     - Import the uBlue keys to MOK 

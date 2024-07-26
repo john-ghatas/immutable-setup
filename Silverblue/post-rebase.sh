@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Setting up packages" 
-rpm-ostree install android-tools gnome-shell-extension-user-theme neovim tilix zsh
+rpm-ostree install gnome-shell-extension-user-theme tilix zsh
 
 # Ensure the FSTrim is enabled and auto updates are running frequently
 sudo systemctl enable --now fstrim.timer
