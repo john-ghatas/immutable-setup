@@ -6,7 +6,7 @@ APPS_GENERAL=(thunderbird)
 APPS_RSTUDIO=(rstudio)
 APPS_UBUNTU=(intellij-idea-community)
 APPS_DEVELOPMENT=(codium)
-BIN_DEVELOPMENT=(/usr/bin/jq /usr/bin/nmap /usr/bin/nc /usr/bin/tig /usr/bin/ansible-playbook /usr/bin/ansible-galaxy)
+BIN_DEVELOPMENT=(/usr/bin/jq /usr/bin/nmap /usr/bin/nc /usr/bin/tig /usr/bin/ansible /usr/bin/ansible-playbook /usr/bin/ansible-galaxy)
 
 for env in "${CONTAINER[@]}"
 do
