@@ -1,20 +1,13 @@
-FROM quay.io/fedora/fedora:40
+FROM ghcr.io/ublue-os/fedora-toolbox:latest
 
 # Base setup
-RUN sed -i "/tsflags=nodocs/d" /etc/dnf/dnf.conf
-RUN sed -i "s/installonly_limit.*/installonly_limit=6/g" /etc/dnf/dnf.conf
-RUN echo "max_parallel_downloads=20" >> /etc/dnf/dnf.conf
 RUN dnf update -y
 
 # Install General Use applications
 RUN dnf install firefox thunderbird gpgme pcsc-lite gpg neovim vim git libreoffice lm_sensors -y
-RUN dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 
 # Install Brave Browser
 RUN dnf install dnf-plugins-core -y 
-RUN dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo -y
+RUN dnf config-manager addrepo --id=brave-browser --set=name='Brave Browser' --set=baseurl='https://brave-browser-rpm-release.s3.brave.com/$basearch' -y 
 RUN rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 RUN dnf install brave-browser -y
-
-# Install codecs
-RUN dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y

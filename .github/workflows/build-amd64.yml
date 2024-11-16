@@ -53,7 +53,7 @@ jobs:
           file: ./podman-images/Containerfile.development
           push: true
           platforms: linux/amd64
-          tags: johngh/distrobox-images:development-base, johngh/distrobox-images:development-base-amd64, johngh/distrobox-images:development-base-40, johngh/distrobox-images:development-base-40-${{ steps.date.outputs.date }}
+          tags: johngh/distrobox-images:development-base, johngh/distrobox-images:development-base-amd64, johngh/distrobox-images:development-base-41, johngh/distrobox-images:development-base-41-${{ steps.date.outputs.date }}
   build-general:
     runs-on: ubuntu-latest
     steps:
@@ -78,7 +78,7 @@ jobs:
           file: ./podman-images/Containerfile.general
           push: true
           platforms: linux/amd64
-          tags: johngh/distrobox-images:general-base, johngh/distrobox-images:general-base-amd64, johngh/distrobox-images:general-base-40, johngh/distrobox-images:general-base-40-${{ steps.date.outputs.date }}
+          tags: johngh/distrobox-images:general-base, johngh/distrobox-images:general-base-amd64, johngh/distrobox-images:general-base-41, johngh/distrobox-images:general-base-41-${{ steps.date.outputs.date }}
   build-rstudio:
     runs-on: ubuntu-latest
     steps:

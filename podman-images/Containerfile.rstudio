@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora:40
+FROM registry.fedoraproject.org/fedora:40 
 
 # Base setup
 RUN sed -i "/tsflags=nodocs/d" /etc/dnf/dnf.conf
@@ -7,14 +7,14 @@ RUN echo "max_parallel_downloads=20" >> /etc/dnf/dnf.conf
 RUN dnf update -y
 RUN dnf install git wget nmap neovim vim gcc-c++ -y
 
+# Enable RPMFusion
+RUN dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y 
+# Install codecs
+RUN dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
+
 # Install the needed base and devel packages
 RUN dnf install fribidi-devel libcurl-devel libtiff-devel openssl-devel R-base libxml2-devel fontconfig-devel harfbuzz-devel freetype-devel libpng-devel libjpeg-turbo-devel R-core R-devel R-core-devel -y
 
 # Install RStudio
 RUN dnf install rstudio-desktop -y
 
-# Enable RPMFusion
-RUN dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y 
-
-# Install codecs
-RUN dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
