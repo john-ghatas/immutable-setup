@@ -14,6 +14,9 @@ flatpak override --user --filesystem=$HOME/.themes --filesystem=$HOME/.icons --f
 # Init GPG
 systemctl --user enable --now  gpg-agent.socket gpg-agent-extra.socket  gpg-agent-ssh.socket
 
+# Install Devpod on the current user account
+curl -L -o ~/.local/bin/devpod "https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64" && chmod 755 ~/.local/bin/devpod
+
 # Add udev rules for adb/fastboot and usevia.app 
 curl https://raw.githubusercontent.com/M0Rf30/android-udev-rules/main/51-android.rules | sudo tee /etc/udev/rules.d/51-android.rules; sudo chmod +r /etc/udev/rules.d/51-android.rules
 
