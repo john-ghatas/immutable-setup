@@ -24,5 +24,10 @@ RUN bash -c '[ $(uname -m) = x86_64 ] && curl -Lo /usr/local/bin/kubectl "https:
         bash -c '[ $(uname -m) = aarch64 ] && curl -Lo /usr/local/bin/kubectl "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl"'
 RUN chmod +x /usr/local/bin/kubectl
 
+# Add HashiCorp repos
+RUN dnf install -y dnf-plugins-core
+RUN dnf config-manager addrepo --from-repofile=https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+RUN dnf -y install terraform packer
+
 # Install LaTeX
 RUN dnf install texlive-scheme-full -y

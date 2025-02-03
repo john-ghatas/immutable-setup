@@ -6,6 +6,11 @@ RUN dnf update -y
 # Install General Use applications
 RUN dnf install firefox thunderbird gpgme pcsc-lite gpg neovim vim git libreoffice lm_sensors -y
 
+# Add HashiCorp repos
+RUN dnf install -y dnf-plugins-core
+RUN dnf config-manager addrepo --from-repofile=https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+RUN dnf -y install terraform packer
+
 # Install Brave Browser
 RUN dnf install dnf-plugins-core -y 
 RUN dnf config-manager addrepo --id=brave-browser --set=name='Brave Browser' --set=baseurl='https://brave-browser-rpm-release.s3.brave.com/$basearch' -y 
