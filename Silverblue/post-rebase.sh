@@ -2,6 +2,9 @@
 echo "Setting up packages" 
 rpm-ostree install tilix
 
+# Add udev rules for hardware keys
+sudo wget https://raw.githubusercontent.com/Yubico/libfido2/refs/heads/main/udev/70-u2f.rules -O /etc/udev/rules.d/70-u2f.rules && sudo chmod 774 /etc/udev/rules.d/70-u2f.rules
+
 # Ensure the FSTrim is enabled and auto updates are running frequently
 sudo systemctl enable --now fstrim.timer
 sudo systemctl enable --now rpm-ostreed-automatic
