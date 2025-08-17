@@ -14,8 +14,10 @@ echo "Enabling needed overrides for Flatpak Theming"
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak override --user --filesystem=$HOME/.themes --filesystem=$HOME/.icons --filesystem=$HOME/.config/gtk-4.0
 
-# Init GPG
+# Init GPG and PCSCd
 systemctl --user enable --now  gpg-agent.socket gpg-agent-extra.socket  gpg-agent-ssh.socket
+sudo systemctl disable pcscd --now                      
+sudo systemctl enable pcscd.socket --now
 
 # Install Devpod on the current user account
 curl -L -o ~/.local/bin/devpod "https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64" && chmod 755 ~/.local/bin/devpod
