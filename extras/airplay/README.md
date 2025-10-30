@@ -14,3 +14,6 @@ Alternatively you can restart pipewire, this method is untested.
 systemctl --user daemon-reload
 systemctl --user restart pipewire pipewire-pulse wireplumber
 ```
+
+# Setup your own Airplay Speaker
+If you are interested in setting up your own Airplay speaker, I have provided some guides (split between regular sounds quality and a HiFi setup). The base of this guide is a Raspberry Pi with a Raspbian lite install and a USB DAC, you can make your own variation since this guide should be universal.
