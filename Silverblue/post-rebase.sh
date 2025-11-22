@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Setting up packages" 
-rpm-ostree install tilix
+rpm-ostree install tilix gnupg2-scdaemon gnupg2-smime
 
 # Add udev rules for hardware keys
 sudo wget https://raw.githubusercontent.com/Yubico/libfido2/refs/heads/main/udev/70-u2f.rules -O /etc/udev/rules.d/70-u2f.rules && sudo chmod 774 /etc/udev/rules.d/70-u2f.rules
