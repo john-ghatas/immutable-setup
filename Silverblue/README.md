@@ -113,7 +113,7 @@ sudo usermod --shell $(which zsh) $USER
 ```
 git clone https://github.com/vinceliuice/WhiteSur-gtk-theme
 <go to dir>
-./install.sh -m --darker -l -c Dark -N glassy -o normal
+./install.sh -l --darker --round -m -N mojave
 ```
 
 Vimix theme
