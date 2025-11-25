@@ -16,8 +16,7 @@ flatpak override --user --filesystem=$HOME/.themes --filesystem=$HOME/.icons --f
 
 # Init GPG and PCSCd
 systemctl --user enable --now  gpg-agent.socket gpg-agent-extra.socket  gpg-agent-ssh.socket
-sudo systemctl disable pcscd --now                      
-sudo systemctl enable pcscd.socket --now
+sudo systemctl enable --now pcscd.service pcscd.socket
 
 # Install Devpod on the current user account
 curl -L -o ~/.local/bin/devpod "https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64" && chmod 755 ~/.local/bin/devpod
