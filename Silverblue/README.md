@@ -116,6 +116,13 @@ git clone https://github.com/vinceliuice/WhiteSur-gtk-theme
 ./install.sh -l --darker --round -m -N mojave
 ```
 
+MacTahoe theme
+```
+git clone https://github.com/vinceliuice/MacTahoe-gtk-theme
+<go to dir>
+./install.sh -l --darker --blur --round
+```
+
 Vimix theme
 ```
 git clone https://github.com/vinceliuice/vimix-gtk-themes.git
