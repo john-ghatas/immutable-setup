@@ -4,9 +4,7 @@ FROM ghcr.io/ublue-os/fedora-toolbox:latest
 RUN dnf update -y
 
 # Install the needed IDEs, base and devel packages
-RUN dnf install git neovim plocate ansible fuse fuse-devel -y
-RUN dnf install fribidi-devel libcurl-devel libjpeg-turbo-devel libtiff-devel openssl-devel -y
-RUN dnf install python python-pip lm_sensors tig tree iperf3 -y
+RUN dnf install git neovim plocate ansible fuse fuse-devel fribidi-devel libcurl-devel libjpeg-turbo-devel libtiff-devel openssl-devel python python-pip lm_sensors tig tree iperf3 texlive-scheme-full dnf-plugins-core dbus-send -y
 
 # Install VSCodium
 RUN rpmkeys --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
@@ -25,9 +23,5 @@ RUN bash -c '[ $(uname -m) = x86_64 ] && curl -Lo /usr/local/bin/kubectl "https:
 RUN chmod +x /usr/local/bin/kubectl
 
 # Add HashiCorp repos
-RUN dnf install -y dnf-plugins-core
 RUN dnf config-manager addrepo --from-repofile=https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
 RUN dnf -y install terraform packer
-
-# Install LaTeX
-RUN dnf install texlive-scheme-full -y

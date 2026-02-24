@@ -4,7 +4,7 @@ FROM ghcr.io/ublue-os/fedora-toolbox:latest
 RUN dnf update -y
 
 # Install General Use applications
-RUN dnf install firefox thunderbird gpgme pcsc-lite gpg neovim vim git libreoffice lm_sensors -y
+RUN dnf install firefox thunderbird gpgme pcsc-lite gpg neovim vim git libreoffice lm_sensors dbus-send -y
 
 # Add HashiCorp repos
 RUN dnf install -y dnf-plugins-core

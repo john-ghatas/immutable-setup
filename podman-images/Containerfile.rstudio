@@ -1,12 +1,12 @@
 FROM ghcr.io/ublue-os/fedora-toolbox:latest
 
-# Base setup
-RUN dnf update -y
-RUN dnf install git wget nmap neovim vim gcc-c++ -y
-
-# Install the needed base and devel packages
-RUN dnf install fribidi-devel libcurl-devel libtiff-devel openssl-devel R-base libxml2-devel fontconfig-devel harfbuzz-devel freetype-devel libpng-devel libjpeg-turbo-devel R-core R-devel R-core-devel -y
-
-# Install RStudio
-RUN dnf copr enable iucar/rstudio -y
-RUN dnf install rstudio-desktop -y
+RUN dnf update -y && \
+    dnf install -y dnf-plugins-core && \
+    dnf copr enable iucar/rstudio -y && \
+    dnf install -y \
+    git wget nmap neovim vim gcc-c++ \
+    fribidi-devel libcurl-devel libtiff-devel openssl-devel \
+    R-base libxml2-devel fontconfig-devel harfbuzz-devel \
+    freetype-devel libpng-devel libjpeg-turbo-devel \
+    R-core R-devel R-core-devel rstudio-desktop dbus-send && \
+    dnf clean all
