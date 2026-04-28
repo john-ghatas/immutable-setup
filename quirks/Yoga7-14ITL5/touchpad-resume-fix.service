@@ -1,0 +1,14 @@
+[Unit]
+Description=Restart I2C Touchpad and Wacom Pen after sleep/mode-switch
+After=suspend.target hibernate.target hybrid-sleep.target
+
+[Service]
+Type=oneshot
+# Unload wacom first, then the bus
+ExecStart=/usr/sbin/modprobe -r wacom i2c_hid_acpi
+# Reload the bus, then the wacom driver
+ExecStartPost=/usr/sbin/modprobe i2c_hid_acpi
+ExecStartPost=/usr/sbin/modprobe wacom
+
+[Install]
+WantedBy=suspend.target hibernate.target hybrid-sleep.target
