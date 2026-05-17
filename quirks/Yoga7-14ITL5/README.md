@@ -2,7 +2,7 @@
 For the Yoga 7 14ITL5, append the following kargs to fix sleep and performance issues:
 
 ```bash
-rpm-ostree kargs --append='pci=nocrs' --append='intel_pstate=passive' --append='i8042.nopnp=1' --append='i2c_designware.timeout=5000' --append='processor.max_cstate=1' --append='pcie_aspm=off'
+rpm-ostree kargs --append='pci=nocrs' --append='intel_pstate=passive' --append='i8042.nopnp=1' --append='i2c_designware.timeout=5000' --append='processor.max_cstate=1' --append='pcie_aspm=off' --append='intel_pstate=no_hwp'
 ```
 
 ## Post-Sleep Input Fix (Touchpad & Pen)
