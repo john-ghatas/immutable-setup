@@ -12,7 +12,7 @@ sudo systemctl enable --now rpm-ostreed-automatic
 # Init flatpak
 echo "Enabling needed overrides for Flatpak Theming"
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak override --user --filesystem=$HOME/.themes --filesystem=$HOME/.icons --filesystem=$HOME/.config/gtk-4.0
+flatpak override --user --filesystem=$HOME/.themes --filesystem=$HOME/.icons --filesystem=xdg-config/gtk-3.0:ro --filesystem=xdg-config/gtk-4.0:ro
 
 # Init GPG and PCSCd
 systemctl --user enable --now  gpg-agent.socket gpg-agent-extra.socket  gpg-agent-ssh.socket
