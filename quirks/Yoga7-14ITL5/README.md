@@ -11,7 +11,7 @@ rpm-ostree kargs --append='pci=nocrs' --append='intel_pstate=passive' --append='
 
 ### Modern
 ```bash
-rpm-ostree kargs --append='pci=nocrs' --append='i8042.nopnp=1' --append='i2c_designware.timeout=2000' --append='intel_idle.max_cstate=0'
+rpm-ostree kargs --append='pci=nocrs' --append='i8042.nopnp=1' --append='i2c_designware.timeout=2000' --append='intel_idle.max_cstate=0' --append="intel_epb_no_override"
 ```
 
 ## Post-Sleep Input Fix (Touchpad & Pen)
