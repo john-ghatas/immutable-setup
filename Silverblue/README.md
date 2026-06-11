@@ -93,6 +93,13 @@ If you are trying to get PGP Mailing working with Thunderbird follow the steps m
 
 - Follow this [page](https://anweshadas.in/how-to-use-yubikey-or-any-gpg-smartcard-in-thunderbird-78/#:~:text=Configure%20the%20secret%20key%20usage%20form%20Yubikey&text=Type%20your%20Secret%20Key%20ID,your%20hardware%20token%20in%20Thunderbird.) to set Thunderbird up to work with your smartcard.
 
+## Enable GPU Encode in Brave
+To enable the GPU Encode in Brave for use with the Teams PWA or anything else you need to enable some flags in Flatpak. Run the following command and close all current sessions to activate the setting.
+
+```
+mkdir -p ~/.var/app/com.brave.Browser/config/ && echo '--enable-features=VaapiVideoDecoder,AcceleratedVideoEncoder,VaapiVideoDecodeLinuxGL --ignore-gpu-blocklist --disable-features=UseChromeOSDirectVideoDecoder' > ~/.var/app/com.brave.Browser/config/brave-flags.conf
+```
+
 ## Install devpod-cli in userspace
 ```
 curl -L -o ~/.local/bin/devpod "https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64" && chmod 755 ~/.local/bin/devpod
