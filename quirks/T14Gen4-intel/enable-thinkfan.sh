@@ -44,7 +44,7 @@ sudo cp thinkfan.yaml /etc/thinkfan.yaml
 
 # Add misc audio tweaks
 echo "Setting up Dolby Atmos"
-mkdir ~/.config/pipewire/pipewire.conf.d
+mkdir -p ~/.config/pipewire/pipewire.conf.d
 cp 99-dolby-atmos-default.conf ~/.config/pipewire/pipewire.conf.d/99-dolby-atmos-default.conf
 
 echo "Installation complete. Please reboot."
