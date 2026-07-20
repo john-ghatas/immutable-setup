@@ -17,23 +17,7 @@ update_interval = 10
 EOF
 
 sudo mkdir -p /etc/tuned/balanced-battery
-sudo tee /etc/tuned/balanced-battery/tuned.conf > /dev/null << 'EOF'
-[main]
-summary=Optimized balanced battery profile for ThinkPad T14 Gen 4 (i5-1335U)
-include=balanced-battery
-
-[cpu]
-governor=powersave
-energy_perf_bias=balance_power
-energy_performance_preference=balance_power
-
-[audio]
-timeout=10
-
-[sysctl]
-kernel.nmi_watchdog=0
-vm.laptop_mode=3
-EOF
+sudo cp tuned-main.conf /etc/tuned/balanced-battery/tuned.conf
 
 sudo systemctl restart tuned
 
