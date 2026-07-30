@@ -13,7 +13,7 @@ sudo tee /etc/tuned/tuned-main.conf > /dev/null << 'EOF'
 daemon = 1
 dynamic_tuning = 1
 sleep_interval = 1
-update_interval = 10
+update_interval = 1
 EOF
 
 sudo mkdir -p /etc/tuned/balanced-battery
