@@ -16,8 +16,11 @@ sleep_interval = 1
 update_interval = 1
 EOF
 
-sudo mkdir -p /etc/tuned/balanced-battery
-sudo cp tuned-main.conf /etc/tuned/balanced-battery/tuned.conf
+sudo mkdir -p /etc/tuned/profiles/{thinkpad-battery,thinkpad-powersave}
+sudo cp tuned/tuned-balanced.conf /etc/tuned/profiles/thinkpad-battery/tuned.conf
+sudo cp tuned/tuned-powersave.conf /etc/tuned/profiles/thinkpad-powersave/tuned.conf
+
+sudo cp tuned/ppd.conf /etc/tuned/ppd.conf
 
 sudo systemctl restart tuned
 
