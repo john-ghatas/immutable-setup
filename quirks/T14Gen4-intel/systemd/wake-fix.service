@@ -1,0 +1,11 @@
+[Unit]
+Description=Fix Power Profile and ACPI Platform Profile on Wake
+After=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
+
+[Service]
+Type=oneshot
+ExecStart=/etc/systemd/system-sleep/wake-fix post suspend
+RemainAfterExit=false
+
+[Install]
+WantedBy=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target

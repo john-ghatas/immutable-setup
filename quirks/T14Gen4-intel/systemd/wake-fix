@@ -1,0 +1,28 @@
+#!/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+case "$1" in
+    post)
+        echo "Wake fix started at $(date)" >> /var/log/power-wake-fix.log
+        
+        # 1. Wait for system initialization
+        sleep 2
+        
+        # 2. Inject raw ACPI performance kick
+        if [ -f /sys/firmware/acpi/platform_profile ]; then
+            echo "Kicking ACPI into performance..." >> /var/log/power-wake-fix.log
+            echo performance > /sys/firmware/acpi/platform_profile 2>> /var/log/power-wake-fix.log
+            
+            # 3. Hold performance state briefly to clear hardware lag
+            sleep 1.5
+            
+            # 4. Cleanly switch back to balanced via sysfs (Bypasses D-Bus)
+            echo "Settling back down to balanced mode..." >> /var/log/power-wake-fix.log
+            echo balanced > /sys/firmware/acpi/platform_profile 2>> /var/log/power-wake-fix.log
+        else
+            echo "Error: ACPI platform profile interface not found." >> /var/log/power-wake-fix.log
+        fi
+        
+        echo "Wake fix finished with status $?" >> /var/log/power-wake-fix.log
+        ;;
+esac

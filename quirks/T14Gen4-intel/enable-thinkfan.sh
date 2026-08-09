@@ -12,6 +12,10 @@ echo "Setup power management"
 sudo systemctl disable --now tuned tuned-ppd thermald
 sudo systemctl enable --now powertop
 
+sudo cp systemd/wake-fix /etc/systemd/system-sleep/wake-fix
+sudo cp systemd/wake-fix.service /etc/systemd/system-sleep/wake-fix.service
+sudo systemctl daemon-reload
+sudo systemctl enable --now wake-fix
 
 # Setting up thinkfan
 echo "Setting up the custom fan curve for thinkfan - geared towards PTM7950"
