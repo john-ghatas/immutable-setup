@@ -32,10 +32,8 @@ Use the compose-nvidia.ini file if you have an NVIDIA GPU. If your are using loc
 
 ```
 # Create
-distrobox-assemble create --file ./compose.ini
-
-# Update
-distrobox-assemble create --file ./compose.ini --replace
+./distrobox-setup.sh # AMD/Intel
+./distrobox-setup.sh --nvidia # Only if an NVIDIA GPU is installed
 
 # Destroy
 distrobox-assemble rm --file ./compose.ini
